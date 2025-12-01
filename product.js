@@ -14,11 +14,12 @@ async function fetchCoffees() {
         // STEP 1: Fetch data from the API
         // API URL: 'https://api.sampleapis.com/coffee/hot'
         // HINT: const response = await fetch('URL_HERE');
-        const response = // YOUR CODE HERE
+        const response = await fetch('https://api.sampleapis.com/coffee/hot');
+        // YOUR CODE HERE
         
         // STEP 2: Convert response to JSON
         // HINT: const data = await response.json();
-        const data = // YOUR CODE HERE
+        const data = await response.json();// YOUR CODE HERE
         
         // ==========================================
         // TODO #2: TRANSFORM THE DATA
@@ -34,11 +35,11 @@ async function fetchCoffees() {
         
         allCoffees = data.map(coffee => ({
             id: coffee.id,
-            name: // YOUR CODE HERE (use coffee.title)
-            description: // YOUR CODE HERE
+            name: coffee.title,// YOUR CODE HERE (use coffee.title)
+            description: coffee.description,// YOUR CODE HERE
             category: getCoffeeCategory(coffee.title, coffee.ingredients),
-            ingredients: // YOUR CODE HERE
-            image_url: // YOUR CODE HERE (use coffee.image)
+            ingredients: coffee.ingredients,// YOUR CODE HERE
+            image_url: coffee.image// YOUR CODE HERE (use coffee.image)
         }));
         
         // Display all coffees when page loads
